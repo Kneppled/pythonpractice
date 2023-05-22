@@ -1,3 +1,6 @@
+#global variable
+another = 'yes'
+
 # function to reverse the string or list given and return it
 def reversePal(palindrome):
     return palindrome[::-1]
@@ -11,22 +14,21 @@ def checkPal(palindrome):
     return False
 
 
-# Enters list of numbers or string as a string
-palindrome = input('Enter a list of numbers or a string to check palindrome:')
+def main(another):
+    while another == 'yes':
+        # Enters list of numbers or string as a string
+        palindrome = input('Enter a list of numbers or a string to check palindrome:')
+        #runs functions above to return true or false
+        ans = checkPal(palindrome)
+        if ans:      # if check pal returns true then the input is a palindrome
+            print("Yes")
+        else:
+            print("No")
+        another = input('Would you like to try another(yes or no):')
+        print("")
+    else:
+        exit
+    
 
-ans = checkPal(palindrome)
+main(another)
 
-if ans:      # if check pal returns true then the input is a palindrome
-    print("Yes")
-else:
-    print("No")
-
-#test prints
-print(checkPal('race car'))
-print(checkPal('Abba'))
-print(checkPal([123, 321]))
-print(checkPal([121, 121]))
-print(checkPal([121, 121, 121]))
-print(checkPal([[121, 121], [121, 121]]))
-print(checkPal([[123, 123], [123, 123]]))
-print(checkPal(["abc", "abc"]))
